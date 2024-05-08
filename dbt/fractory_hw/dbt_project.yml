@@ -1,0 +1,24 @@
+name: 'fractory_hw'
+version: '1.0.0'
+
+profile: 'fractory_hw'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+models:
+  fractory_hw:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: table
+    core:
+      +materialized: table
